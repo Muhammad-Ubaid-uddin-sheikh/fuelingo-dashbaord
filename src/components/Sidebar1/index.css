@@ -1,0 +1,40 @@
+.active-link {
+    color: white;
+    background-color:#EA352B;
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 500; /* Bold */
+    display: flex;
+    align-items: center;
+    padding: 10px 7px;
+    border-radius: 5px;
+    gap: 8px;
+    font-size: 17px
+   
+  } 
+.ps-menu-button{
+  font-size: 17px !important;
+  font-weight: 500;
+}
+  .navlinkLinkatag{
+    color: black;
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 500; /* Bold */
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+    gap: 8px;
+    font-size: 17px
+  }
+  .navlinkLinkatagnew{
+    padding-left: 20px !important;
+  }
+#sidebar0id{
+  width: 250px !important;
+  position: fixed !important;
+  z-index: 99;
+  background-color: #fcf4f3;}
+  .css-1efwfyq .ps-sidebar-container{
+    padding-left: 22px;
+    padding-right: 22px;
+  }

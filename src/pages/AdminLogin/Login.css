@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'NeueMontreal';
+    src: url('../../Assests/Fonts/NeueMontreal-Bold.ttf') format('truetype');
+  }
+.AdminCss{
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 500; /* Bold */
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+}
+.img{
+    border-radius: 0px 20px 20px 0px;;
+    width: 100%;
+}
+.imgDiv{
+    width: 50%;
+}
+.main{
+    
+    display: flex;
+    align-items: center;
+    /* height: 100vh; */
+}
+.Label{
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 300; /* Bold */
+    font-size: 15px;
+    /* margin-right: 130px; */
+    margin-bottom: 8px;
+    margin-top: 3em;
+    
+}
+.label2{
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 300; /* Bold */
+    font-size: 15px;
+    /* margin-right: 110px; */
+    margin-bottom: 8px;
+    margin-top: 1em;
+   
+}
+.Logindiv{
+    
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding-left:3em;
+    /* justify-content: center; */
+    border-radius: 20px 0px 0px 20px;
+   
+    
+    
+}
+.loginBtn{
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 300;
+    padding-left: 12px;
+    padding-right: 240px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #EA352B;
+    color: white;
+    border: 0px;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+}
+.box{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    border-radius: 5px;
+    
+}
+.btndiv{
+    margin-top:20px;
+  
+
+}
+/* .input:focus {
+    outline: none;
+    border-color: #EA352B;
+} */
+.input:focus {
+    border: 0.5px solid #EA352B; /* Change border color on focus */
+    outline: none; /* Remove default browser outline */
+    background-color: #fff; /* Optional: Change background color */
+    box-shadow: 0 0 2px #EA352B; /* Add a glow effect */
+    transition: 0.4s ease-in-out;
+  }
+.input{
+    font-size: 14px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #F1F2F5;
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 300;
+    padding-right: 14px;
+    padding-left: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: black;
+}
+.addtion-div-for-signin{
+    width: 100%;
+    padding-right: 4em;
+}

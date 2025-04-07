@@ -1,0 +1,32 @@
+.active-link {
+    color: white;
+    background-color:#EA352B;
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 500; /* Bold */
+    display: flex;
+    align-items: center;
+    padding: 10px 7px;
+    border-radius: 5px;
+    gap: 8px;
+    font-size: 17px;
+  
+  } 
+.is-active{
+  font-family: 'NeueMontreal', sans-serif;
+  font-weight: 500; /* Bold */
+  font-size: 17px;
+}
+  .navlinkLinkatag{
+    color: black;
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 500; /* Bold */
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+    gap: 8px;
+    font-size: 17px
+     }   
+  .navlinkLinkatagnew{
+    padding-left: 20px !important;
+  }

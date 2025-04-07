@@ -1,0 +1,29 @@
+.footerclassName{
+    display: block;
+    width: 47%;
+
+}
+.paragraphp{
+    color: #ffffffbf;
+    font-weight:300;
+    margin-top: 10px;
+}
+.suscribe-btn-din{
+    display:flex;
+     align-items: center;
+     border:1px solid #ffffffbf;
+     border-radius:35px;
+     width:66%;
+     margin-top: 20px;
+}
+@media (max-width:768px) {
+    .footerclassName{
+        display: block;
+        width: 100%;
+    }.suscribe-btn-din{
+        width: 100%;
+        margin-top: 18px;
+    }.lipara{
+        font-size: 12px;
+    }
+}
