@@ -4,7 +4,7 @@ import {Img } from "../../components";
 import HomeColumnBetter from "../../components/HomeColumnBetter";
 import History from './History.svg'
 import Ellise from './Heroverly.png'
-import Imgage from '../../Assests/Images/img.png'
+import Imgage from '../../Assests/Images/updateImage.png'
 import CardRepair from './FuelingoIcons-04.svg'
 import Squareimg from './realtime.svg'
 import './styles.css'
@@ -38,7 +38,7 @@ const navigation = useNavigate()
         
         <div className="flex flex-col items-end">
           {/* hero image section */}
-          <Img src={Ellise} alt="image" object className=" h-[200px]w-[100%] object-contain" style={{position:'absolute',width:'70%'}} />
+          <Img src={Ellise} alt="image" object className=" h-[200px]w-[100%] object-cover absolute" style={{position:'absolute',width:'70%'}} />
           <div className="relative  flex flex-col items-center gap-[124px] self-stretch md:gap-[93px] sm:gap-[62px]">
             
             <Banners/>
@@ -54,55 +54,89 @@ const navigation = useNavigate()
   Download Fuelingo, add your vehicle details, and effortlessly track fuel efficiency in real-time. Analyze performance, optimize your driving habits, and save on fuel costs. Easily find trusted car repair services nearby and stay updated with timely reminders for refills and maintenance—all in one simple, user-friendly app!               </p>
               </div>
               <CardResponsive/>
-              <div className="card-name-btn">
+              <div className="card-name-btn mt-[8em]">
+  <div className="flex flex-row justify-between items-start w-[100%] m-auto pt-[4em] gap-[2em] md:flex-col relative">
+    {/* Left Features */}
+    {/* <div className="flex w-[30%] flex-col gap-[11em] md:w-full">
+      <HomeColumnBetter 
+      // style={{marginTop:'-10em'}}
+        image={Squareimg}
+        text="Real-Time Fuel Average Tracking"
+        text1="Get accurate fuel consumption stats while you drive, helping you understand your car’s efficiency on the go."
+        className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+      <HomeColumnBetter
+        image={Optimize}
+        text="Historical Data & Trends"
+        text1="Access your car’s fuel performance history and analyze trends over time."
+        className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+    </div> */}
 
+    {/* Center Phone Image */}
+    <div style={{position:'absolute',width:'30%'}} className="top-[-3em] left-[-4em]">
+    <HomeColumnBetter 
+      
+        image={Squareimg}
+        text="Real-Time Fuel Average Tracking"
+        text1="Get accurate fuel consumption stats while you drive, helping you understand your car’s efficiency on the go."
+        className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+      </div>
+      <div style={{position:'absolute',width:'30%'}} className="top-[-3em] right-[-4em]">
+      <HomeColumnBetter 
+    image={Optimize}
+    text="Historical Data & Trends"
+    text1="Access your car’s fuel performance history and analyze trends over time."
+    className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+      </div>
+    <div className="w-[100%] md:w-full flex justify-center">
+      <Img
+        src={Imgage}
+        alt="main"
+        className="h-[34em] w-full  object-contain "
+        style={{ borderRadius: "27px" }}
+      />
+    </div>
+    <div style={{position:'absolute',width:'30%'}} className="bottom-[-5em] right-[-4em]">
+      <HomeColumnBetter 
+    image={History}
+    // style={{marginTop:'-10em'}}
+    text="Route Optimization"
+    text1="Compare routes to find the most fuel-efficient path to your destination."
+    className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+      </div>
+      <div style={{position:'absolute',width:'30%'}} className="bottom-[-5em] left-[-4em]">
+      <HomeColumnBetter 
+   
+    // style={{marginTop:'-10em'}}
+    image={CardRepair}
+        text="Car Repair & Service Finder"
+        text1="Easily locate trusted repair shops and compare prices, ratings, and reviews."
+        className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+      </div>
+    {/* Right Features */}
+    {/* <div className="flex w-[30%] flex-col gap-[11em] md:w-full">
+      <HomeColumnBetter
+        image={History}
+        // style={{marginTop:'-10em'}}
+        text="Route Optimization"
+        text1="Compare routes to find the most fuel-efficient path to your destination."
+        className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+      <HomeColumnBetter
+        image={CardRepair}
+        text="Car Repair & Service Finder"
+        text1="Easily locate trusted repair shops and compare prices, ratings, and reviews."
+        className="flex flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
+      />
+    </div> */}
+  </div>
+</div>
 
-            
-              <div className="flex gap-[45px] self-stretch md:flex-col w-[91%] m-auto pt-[4em]">
-                 <div className="flex w-full flex-col gap-[35px]">
-                  {[...Array(1)].map((d, index) => (
-                    <HomeColumnBetter
-                      image={Squareimg}
-                      text="  Real-Time Fuel Average Tracking:                      "
-                      text1=" Get accurate fuel consumption stats while you drive, helping you understand your car’s efficiency on the go.                "
-                      key={"listbetter" + index}
-                      className="flex flex-1 flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
-                    />
-                  ))}
-                   <HomeColumnBetter
-                      image={Optimize}
-                      text=" Route Optimization"
-                      text1="Compare routes to find the most fuel-efficient path to your destination. Save time, fuel, and money with smarter navigation. "
-                      key={"listbetter"}
-                      className="flex flex-1 flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
-                    />
-                </div>
-                <div className="relative h-[629px] w-full rounded-[26px] border border-solid border-black-900_26 bg-red-500 bg-[url(/public/images/img_frame_1171276568.png)] bg-cover bg-no-repeat px-[41px] md:px-5 md:pt-5">
-                  <div className="absolute  left-0 right-0 m-auto h-[665px]  md:h-auto">
-                    <Img src={Imgage} alt="main" className="h-[630px] w-full object-cover" style={{borderRadius:'27px'}} />
-                   
-                  </div>
-                </div>
-                <div className="flex w-full flex-col gap-[35px]">
-                  {[...Array(1)].map((d, index) => (
-                    <HomeColumnBetter
-                      image={History}
-                      text="Historical Data & Trends"
-                      text1=" Access your car’s fuel performance history and analyze trends over time to keep your vehicle in peak condition."
-                      key={"listautomated" + index}
-                      className="flex flex-1 flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
-                    />
-                  ))}
-                   <HomeColumnBetter
-                      image={CardRepair}
-                      text=" Car Repair & Service Finder:"
-                      text1="Easily locate trusted repair shops and service providers in your area. Compare prices, ratings, and reviews to get the best deals for your car's maintenance and repairs."
-                      key={"listbetter"}
-                      className="flex flex-1 flex-col items-start justify-center rounded-[26px] border border-solid border-black-900_7f p-[25px] sm:p-5"
-                    />
-                </div> 
-              </div>
-              </div>
               <CustomButton className="w-[13%] md:w-[30%] h-[2.5em] mt-2 " background='red'  textButton="Signup" handleClick={()=>navigation('/signup')}/>
             </div>
            

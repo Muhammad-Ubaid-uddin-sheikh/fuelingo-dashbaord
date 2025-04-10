@@ -1,5 +1,5 @@
 import React from 'react'
-import Imgage from '../../Assests/Images/img.png'
+import Imgage from '../../Assests/Images/responsiveCardicon.png'
 import HomeColumnBetter from "../../components/HomeColumnBetter";
 import './styles.css'
 import { Img } from "../../components";
@@ -11,12 +11,12 @@ const CardResponsive = () => {
   return (
     <div className='btn-card'>
     <div className="flex gap-[35px] self-stretch md:flex-col w-[91%] m-auto">
-    <div className="relative h-[350px] w-full rounded-[26px] border border-solid border-black-900_26 bg-indigo-300 bg-[url(/public/images/img_frame_1171276568.png)] bg-cover bg-no-repeat px-[41px] md:px-5 md:pt-5">
-        <div className="absolute  left-0 right-0 m-auto h-[709px]  md:h-auto" style={{top:0}}>
-          <img src={Imgage} alt="main"  style={{borderRadius:'27px'}} />
+    {/* <div className="relative h-[350px] w-full rounded-[26px] border border-solid border-black-900_26 bg-indigo-300  bg-cover bg-no-repeat px-[41px] md:px-5 md:pt-5"> */}
+        {/* <div className="absolute  left-0 right-0 m-auto h-[709px]  md:h-auto" style={{top:0}}> */}
+          <img src={Imgage} alt="main" className='w-[100%] h-[23em] object-contain'  style={{borderRadius:'27px'}} />
          
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
       <div className="flex w-full flex-col gap-[35px] pt-4">
       {[...Array(1)].map((d, index) => (
                     <HomeColumnBetter
