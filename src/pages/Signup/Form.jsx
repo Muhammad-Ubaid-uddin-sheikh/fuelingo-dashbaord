@@ -295,7 +295,7 @@ const SignupForm = () => {
           <TbAlertOctagon color="#EA352B" />
         </IconButton>
         <ReCAPTCHA
-              sitekey="6LftNQ0rAAAAANdGr97ElxAI3eQmdQTagU_WcJgV" // Add your ReCAPTCHA site key here
+              sitekey="6LdVsycrAAAAAPbLAm11Fibl1j9z2lX7A5IJJDJD" // Add your ReCAPTCHA site key here
               onChange={handleRecaptchaChange}
               style={{ width: "100%" }}
             />
@@ -449,7 +449,7 @@ const SignupForm = () => {
 </div>
 <div className="mt-4">
 <ReCAPTCHA
-              sitekey="6LftNQ0rAAAAANdGr97ElxAI3eQmdQTagU_WcJgV" // Add your ReCAPTCHA site key here
+              sitekey="6LdVsycrAAAAAPbLAm11Fibl1j9z2lX7A5IJJDJD" // Add your ReCAPTCHA site key here
               onChange={handleRecaptchaChange}
               style={{ width: "100%" }}
             /> 
