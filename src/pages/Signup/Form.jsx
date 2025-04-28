@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { TbAlertOctagon } from "react-icons/tb";
+import ReCAPTCHA from "react-google-recaptcha"; // Import ReCAPTCHA
 
 const services = [
  "Oil change",
@@ -57,14 +58,16 @@ const dubaiCities = [
 const SignupForm = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [loading, setLoading] = useState(false);
-
+  const [recaptchaValue, setRecaptchaValue] = useState(null); // Store ReCAPTCHA response
   const [userData, setUserData] = useState({
     fullName: "",
     numCars: "",
     email: "",
     lastName:""
   });
-
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value); // Set the value when ReCAPTCHA is completed
+  };
   const [providerData, setProviderData] = useState({
     companyName: "",
     CompanyRepresentativeName:"",
@@ -74,10 +77,26 @@ const SignupForm = () => {
     services: [],
     email: ""
   });
+ 
   const handleUserChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setUserData({ ...userData, [name]: type === "checkbox" ? checked : value });
+  
+    // If the input type is 'checkbox', use 'checked' to get the value
+    if (type === "checkbox") {
+      setUserData({ ...userData, [name]: checked });
+    } 
+    // If the input type is 'number', ensure no negative values
+    else if (type === "number") {
+      const newValue = value ? parseFloat(value) : ''; // Convert value to number
+      // Prevent negative values
+      setUserData({ ...userData, [name]: newValue < 0 ? 0 : newValue });
+    } 
+    // For all other input types (e.g., text, email), just use the 'value'
+    else {
+      setUserData({ ...userData, [name]: value });
+    }
   };
+  
 
   const handleProviderChange = (e) => {
     setProviderData({ ...providerData, [e.target.name]: e.target.value });
@@ -86,7 +105,12 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
+    if (!recaptchaValue) {
+      toast.error("Please complete the reCAPTCHA.");
+      setLoading(false);
+      return;
+    }
+
     try {
       if (tabIndex === 0) {
         if (!userData.fullName || !userData.lastName || !userData.numCars || !userData.email) {
@@ -270,6 +294,11 @@ const SignupForm = () => {
         <IconButton className=" !absolute !right-[9px] !top-[27%] text-[#EA352B] ">
           <TbAlertOctagon color="#EA352B" />
         </IconButton>
+        <ReCAPTCHA
+              sitekey="6LftNQ0rAAAAANdGr97ElxAI3eQmdQTagU_WcJgV" // Add your ReCAPTCHA site key here
+              onChange={handleRecaptchaChange}
+              style={{ width: "100%" }}
+            />
       </Tooltip>
              
               </div>
@@ -297,52 +326,7 @@ const SignupForm = () => {
                 onChange={handleProviderChange}
                 required
               />
-              {/* <CustomInput
-                label="City"
-                name="city"
-                value={providerData.city}
-                onChange={handleProviderChange}
-                required
-              /> */}
-              {/* <Autocomplete
-  value={providerData.city}
-  onChange={handleProviderChange}
-  options={dubaiCities}
-  renderInput={(params) => (
-    <TextField
-      {...params}
-      label="City"
-      required={true}
-      variant="filled"  // Changed from "outlined" to "filled" to match styling with services input
-      fullWidth
-      sx={{
-        marginTop: '10px', // Added marginTop
-        // Style the label
-        '& label': {
-          color: 'black', // default label color
-        },
-        '& label.Mui-focused': {
-          color: 'black', // label color when focused
-        },
-        // Style the input underline for filled variant
-        '& .MuiFilledInput-root': {
-          '&:before': {
-            borderBottomColor: '#f6f6f6', // default bottom border color
-          },
-          '&:after': {
-            borderBottomColor: 'red', // bottom border color when focused
-          },
-        },
-        // Style the placeholder text
-        '& input::placeholder': {
-          color: 'black',
-        },
-      }}
-    />
-  )}
-  disableClearable
-  getOptionLabel={(option) => option}  // Adjust based on the structure of your data (if needed)
-/> */}
+             
 <Autocomplete
   value={providerData.city}
   onChange={(event, newValue) => {
@@ -406,6 +390,7 @@ const SignupForm = () => {
         <IconButton className=" !absolute !right-[9px] !top-[27%] text-[#EA352B] ">
           <TbAlertOctagon color="#EA352B" />
         </IconButton>
+        
       </Tooltip>
               </div>
 <div className="mt-1">
@@ -460,8 +445,15 @@ const SignupForm = () => {
     setProviderData({ ...providerData, services: newValue })
   }
 />
+
 </div>
-              
+<div className="mt-4">
+<ReCAPTCHA
+              sitekey="6LftNQ0rAAAAANdGr97ElxAI3eQmdQTagU_WcJgV" // Add your ReCAPTCHA site key here
+              onChange={handleRecaptchaChange}
+              style={{ width: "100%" }}
+            /> 
+            </div>   
             </>
           )}
           <CustomButton
