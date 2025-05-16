@@ -59,7 +59,7 @@ export default function Sidebar11({ ...props }) {
               />
             }
           >
-           <Link to="/Admindashboard">Dashboard</Link>
+           <Link to="/admin-dashboard">Dashboard</Link>
           </MenuItem>
           
            <NavLink

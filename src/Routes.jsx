@@ -9,35 +9,41 @@ import AdminAllFeedbacks from "pages/AdminAllFeedbacks";
 import Index from "pages/LandingPage/Index";
 import PrivPolicy from "pages/Privacy";
 import SignUp from "pages/Signup/SignUp";
+import ProtectedRoute from "components/protectedRoute/ProtectedRoute";
 
 const ProjectRoutes = () => {
   let element = useRoutes([
-    { path: "/", element: <Index/> },
-    
+    { path: "/", element: <Index /> },
+
+    { path: "admin-login", element: <AdminLogin /> },
+
     {
-      path: "adminlogin",
-      element: <AdminLogin />,
-    },
-    {
-      path: "admindashboard",
-      element: <Admindashboard />,
+      path: "admin-dashboard",
+      element: (
+        <ProtectedRoute>
+          <Admindashboard />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "adminfuelprices",
-      element: <AdminFuelPrices />,
+      element: (
+        <ProtectedRoute>
+          <AdminFuelPrices />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "adminallfeedbacks",
-      element: <AdminAllFeedbacks />,
+      element: (
+        <ProtectedRoute>
+          <AdminAllFeedbacks />
+        </ProtectedRoute>
+      ),
     },
-    {
-      path: "signup",
-      element: <SignUp />,
-    },
-    {
-      path: "PrivacyPolicy",
-      element: <PrivPolicy />,
-    },
+    { path: "signup", element: <SignUp /> },
+    { path: "PrivacyPolicy", element: <PrivPolicy /> },
+    { path: "*", element: <NotFound /> },
   ]);
 
   return element;

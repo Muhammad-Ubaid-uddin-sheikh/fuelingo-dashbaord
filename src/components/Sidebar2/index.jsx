@@ -51,7 +51,7 @@ export default function Sidebar2({ ...props }) {
         className="flex w-full flex-col self-stretch"
       >
         <div className="flex flex-col gap-[0.50rem]">
-         <NavLink to="/Admindashboard">
+         <NavLink to="/admin-dashboard">
 
         
           <MenuItem
@@ -63,7 +63,7 @@ export default function Sidebar2({ ...props }) {
               />
             }
           >
-            <Link to="/Admindashboard">Dashboard</Link>
+            <Link to="/admin-dashboard">Dashboard</Link>
           </MenuItem>
           </NavLink>
           <NavLink to="/adminfuelprices">

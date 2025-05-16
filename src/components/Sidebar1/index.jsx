@@ -56,7 +56,7 @@ export default function Sidebar1({ ...props }) {
            
            <NavLink
            
-           end className={({ isActive }) => (isActive ? 'active-link' : 'navlinkLinkatag')} to="/Admindashboard" 
+           end className={({ isActive }) => (isActive ? 'active-link' : 'navlinkLinkatag')} to="/admin-dashboard" 
            
            >   <Img
               
