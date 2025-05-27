@@ -40,11 +40,6 @@ export default function Sidebar2({ ...props }) {
             fontWeight: 500,
             fontSize: "1.25rem",
             borderRadius: "5px",
-            // [`&:hover, &.ps-active`]: {
-            //   color: "#ffffff",
-            //   backgroundColor: "#ea352b !important",
-            //   boxShadow: "0 2px 4px 0 #0000003f",
-            // },
           },
         }}
         rootStyles={{ ["&>ul"]: { gap: "20rem" } }}
@@ -66,19 +61,19 @@ export default function Sidebar2({ ...props }) {
             <Link to="/admin-dashboard">Dashboard</Link>
           </MenuItem>
           </NavLink>
-          <NavLink to="/adminfuelprices">
+          <NavLink to="/admin-fuel-prices">
           <MenuItem
             icon={
               <Img src="images/img_linear_business.svg" alt="Fuel Prices Icon" className="h-[1.25rem] w-[1.25rem]" />
             }
           >
             
-             <Link to="/adminfuelprices">Fuel Prices</Link>
+             <Link to="/admin-fuel-prices">Fuel Prices</Link>
           </MenuItem>
           </NavLink>
             <NavLink
            
-            end className={({ isActive }) => (isActive ? 'active-link' : 'navlinkLinkatag')} to="/adminallfeedbacks" 
+            end className={({ isActive }) => (isActive ? 'active-link' : 'navlinkLinkatag')} to="/admin-all-feedbacks" 
             
             >   <Img
                

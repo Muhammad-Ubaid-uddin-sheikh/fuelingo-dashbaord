@@ -19,7 +19,7 @@ export default function UserProfile({
   return (
     <div
       {...props}
-      className={`${props.className} flex justify-center items-start w-[25%] md:w-full p-[0.50rem] border-black-900_26 border border-solid bg-white-a700_01 rounded-md`}
+      className={`${props.className} flex justify-center items-start  md:w-full p-[0.50rem] border-black-900_26 border border-solid bg-white-a700_01 rounded-md`}
     >
       <Img src={userImage} alt="Profile Image" className="h-[1.5rem] w-[1.5rem]" />
       <div className="flex flex-1 flex-col items-end justify-center gap-[0.38rem] self-center">

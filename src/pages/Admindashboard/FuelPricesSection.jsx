@@ -2,15 +2,15 @@
 import { Button, Heading } from "../../components";
 import UserProfile1 from "../../components/UserProfile1";
 import React, { Suspense } from "react";
+const fuelNameArabicMap = {
+  "SUPER 98": "ممتاز",
+  "SPECIAL 95": "خصوصي",
+ "E PLUS 91": "إي بلس",
+  "DIESEL": "ديزل",
+};
+export default function FuelPricesSection({fuelPriceList}) {
+  const normalizeName = (name) => name.trim().toUpperCase();
 
-const fuelPriceList = [
-  { userRating: "3.34", userFeedback: "ممتاز", userFuelType: "SUPER 98",  color:'#0897D3'},
-  { userRating: "3.22", userFeedback: "خصوصي", userFuelType: "Special 95",color:'#00953B' },
-  { userRating: "3.15", userFeedback: "إي بلس", userFuelType: "E Plus 91",color:'#E2211C' },
-  { userRating: "3.07", userFeedback: "ديزل", userFuelType: "Diesel",     color:'#FEA30C' },
-];
-
-export default function FuelPricesSection() {
   return (
     <>
       {/* fuel prices section */}
@@ -30,14 +30,23 @@ export default function FuelPricesSection() {
           </div>
           <div className="flex gap-[1.25rem] md:flex-col">
             <Suspense fallback={<div>Loading feed...</div>}>
-              {fuelPriceList.map((d, index) => (
+              {/* {fuelPriceList.map((d, index) => (
                 <UserProfile1
                   background={d?.color}  // Set background color dynamically
                   {...d}
                   key={"fuelList" + index}
                   className="bg-light_blue-700"
                 />
-              ))}
+              ))} */}
+               {fuelPriceList?.map((fuel, index) => (
+              <UserProfile1
+                key={`fuel-${index}`}
+                background={fuel.color}
+                userFuelType={fuel.name}
+                userRating={fuel.fuelPrice.toFixed(2)}
+                userFeedback={fuelNameArabicMap[normalizeName(fuel.name)] || fuel.name}
+              />
+            ))}
             </Suspense>
           </div>
         </div>

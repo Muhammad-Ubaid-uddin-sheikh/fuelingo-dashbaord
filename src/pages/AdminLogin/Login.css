@@ -111,3 +111,41 @@
     width: 100%;
     padding-right: 4em;
 }
+.otp-container {
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    padding: 16px 16px 16px 20px;
+    position: relative;
+  }
+  
+  .otp-input-container {
+    justify-content:flex-start;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    gap: 20px;
+  
+  }
+  .paragraph-otp{
+    font-family: 'NeueMontreal', sans-serif;
+    color: black;
+    font-weight: 200;
+    font-size: 14px;
+    text-align: left;
+  }
+ 
+  .otp-input {
+    margin: 0 5px;
+    /* padding: 10px !important    ; */
+    border-radius: 10px !important;
+    /* width: 50px; */
+    font-size: 30px !important;
+    text-align: center;
+  background: rgb(241 242 245 / 1) !important;
+    height: 2em;
+    font-family: 'NeueMontreal', sans-serif;
+    /* background-color: #747EEF; */
+    border: 1px solid #EA352B!important; 
+    
+  }

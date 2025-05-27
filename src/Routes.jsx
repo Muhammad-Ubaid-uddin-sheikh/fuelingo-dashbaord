@@ -5,11 +5,12 @@ import NotFound from "pages/NotFound";
 import AdminLogin from "pages/AdminLogin";
 import Admindashboard from "pages/Admindashboard";
 import AdminFuelPrices from "pages/AdminFuelPrices";
-import AdminAllFeedbacks from "pages/AdminAllFeedbacks";
+// import Adminallfeedbacks from "pages/admin-all-feedbacks";
 import Index from "pages/LandingPage/Index";
 import PrivPolicy from "pages/Privacy";
 import SignUp from "pages/Signup/SignUp";
 import ProtectedRoute from "components/protectedRoute/ProtectedRoute";
+import Adminallfeedbacks from "pages/AdminAllFeedbacks";
 
 const ProjectRoutes = () => {
   let element = useRoutes([
@@ -26,7 +27,7 @@ const ProjectRoutes = () => {
       ),
     },
     {
-      path: "adminfuelprices",
+      path: "admin-fuel-prices",
       element: (
         <ProtectedRoute>
           <AdminFuelPrices />
@@ -34,10 +35,10 @@ const ProjectRoutes = () => {
       ),
     },
     {
-      path: "adminallfeedbacks",
+      path: "admin-all-feedbacks",
       element: (
         <ProtectedRoute>
-          <AdminAllFeedbacks />
+          <Adminallfeedbacks />
         </ProtectedRoute>
       ),
     },

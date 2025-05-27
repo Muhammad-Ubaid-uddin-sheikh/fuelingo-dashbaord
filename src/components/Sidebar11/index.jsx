@@ -9,11 +9,6 @@ import CustomizedDialogs from "components/modal/Modal";
 export default function Sidebar11({ ...props }) {
   const [collapsed, setCollapsed] = React.useState(false);
 
-  //use this function to collapse/expand the sidebar
-  //function collapseSidebar() {
-  //    setCollapsed(!collapsed)
-  //}
-
   return (
     <Sidebar
       {...props}
@@ -64,7 +59,7 @@ export default function Sidebar11({ ...props }) {
           
            <NavLink
            
-           end className={({ isActive }) => (isActive ? 'active-link' : 'navlinkLinkatag')} to="/adminfuelprices" 
+           end className={({ isActive }) => (isActive ? 'active-link' : 'navlinkLinkatag')} to="/admin-fuel-prices" 
            
            >   <Img
               
@@ -79,7 +74,7 @@ export default function Sidebar11({ ...props }) {
           <MenuItem
             icon={<Img src="images/img_linear_users.svg" alt="Users Icon" className="h-[1.25rem] w-[1.25rem]" />}
           >
-            <Link to="/adminallfeedbacks">Feedbacks</Link>
+            <Link to="/admin-all-feedbacks">Feedbacks</Link>
           </MenuItem>
         </div>
         <div className="flex flex-col gap-[0.50rem]">

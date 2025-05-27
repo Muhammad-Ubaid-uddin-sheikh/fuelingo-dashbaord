@@ -17,6 +17,7 @@ const CustomButton = ({ editButton, background, padding, height, width, textButt
     cursor: loading ? "not-allowed" : "pointer",
     opacity: loading ? 0.7 : 1, // Reduce opacity when loading
     pointerEvents: loading ? "none" : "auto", // Disable all events when loading
+    borderRadius:"8px"
   };
 
   return (

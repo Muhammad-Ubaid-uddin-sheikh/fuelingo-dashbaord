@@ -38,3 +38,18 @@
     padding-left: 22px;
     padding-right: 22px;
   }
+  /* .active-link {
+    color: white;
+    background-color: #EA352B;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 10px 10px;
+  } */
+  
+  .navlinkLinkatag {
+    color: black;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 10px 10px;
+  }
+  

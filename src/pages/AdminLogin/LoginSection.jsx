@@ -4,9 +4,11 @@ import image from '../../Assests/Images/Frame 1321314421.png';
 import { useNavigate } from 'react-router-dom';
 import { AdminLoginAPi } from '../../api/ApiHandler';
 import { CircularProgress } from '@mui/material';
+import AdminOtp from './AdminOtp';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const [showOTPComponent, setShowOTPComponent] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -28,10 +30,7 @@ const Login = () => {
       const response = await AdminLoginAPi('/admin/adminLogin', formData);
       if (response) {
         console.log('Login success:', response);
-      
-        localStorage.setItem('adminToken', response.admin.token);
-        localStorage.setItem('adminEmail', response.admin.email);
-          navigation('/admin-dashboard');
+        setShowOTPComponent(true)
       }
 
     } catch (err) {
@@ -47,8 +46,12 @@ const Login = () => {
       <div className='box'>
         <div className='Logindiv'>
           <div className='addtion-div-for-signin'>
-            <h2 className='AdminCss'>Login</h2>
-
+           
+            {showOTPComponent ? (
+              <AdminOtp email={formData?.email} />
+            ) : (
+              <div>
+                 <h2 className='AdminCss'>Login</h2>
             <h5 className='Label'>Email</h5>
             <input
               name="email"
@@ -70,7 +73,6 @@ const Login = () => {
             />
 
             {error && <div className="error-message">{error}</div>}
-
             <div className='btndiv'>
               <button
                 onClick={handleLogin}
@@ -94,6 +96,9 @@ const Login = () => {
                 )}
               </button>
             </div>
+            </div>
+            )}
+            
           </div>
         </div>
 

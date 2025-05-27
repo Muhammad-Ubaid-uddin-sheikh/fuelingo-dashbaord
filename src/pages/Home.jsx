@@ -28,8 +28,8 @@ const Home = () => {
           </Link>
         </li>
         <li style={{ marginBottom: "10px" }}>
-          <Link to="/adminallfeedbacks" style={{ color: "#87CEFA", textDecoration: "none" }}>
-            AdminAllFeedbacks
+          <Link to="/admin-all-feedbacks" style={{ color: "#87CEFA", textDecoration: "none" }}>
+            admin-all-feedbacks
           </Link>
         </li>
       </ul>

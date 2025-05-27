@@ -72,14 +72,14 @@ export default function Sidebar1({ ...props }) {
             icon={<Img src="images/img_linear_business.svg" alt="Business Icon" className="h-[1.25rem] w-[1.25rem]"  />}
           >
             
-            <Link to="/adminfuelprices" activeClassName="is-active">Fuel Prices</Link>
+            <Link to="/admin-fuel-prices" activeClassName="is-active">Fuel Prices</Link>
           </MenuItem>
           <MenuItem
             icon={<Img src="images/img_linear_users.svg" alt="Users Icon" className="h-[1.25rem] w-[1.25rem]" />}
           >
             
             
-            <Link to="/adminallfeedbacks">Feedbacks</Link>
+            <Link to="/admin-all-feedbacks">Feedbacks</Link>
           </MenuItem>
         </div>
         <div className="flex flex-col gap-[0.38rem]">
