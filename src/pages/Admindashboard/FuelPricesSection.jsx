@@ -20,13 +20,13 @@ export default function FuelPricesSection({fuelPriceList}) {
             <Heading size="headings" as="h4">
               Current Fuel Prices
             </Heading>
-            <Button
+            {/* <Button
               color="gray_100_01"
               size="xs"
               className="min-w-[4.25rem] rounded-[14px] bg-gradient1 bg-clip-text text-transparent"
             >
               Edit
-            </Button>
+            </Button> */}
           </div>
           <div className="flex gap-[1.25rem] md:flex-col">
             <Suspense fallback={<div>Loading feed...</div>}>

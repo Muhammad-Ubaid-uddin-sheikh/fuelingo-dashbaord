@@ -2,22 +2,24 @@ import { Heading, Text } from "./..";
 import React from "react";
 
 export default function UserProfile3({
-  userName = "Khalil Al Amiri",
   dateOfJoiningLabel = "Date of Joining",
-  dateOfJoining = "24/07/24",
   emailLabel = "Email Address",
-  email = "khalil12@gmail.com",
   phoneNumberLabel = "Phone Number",
   phoneNumber = "+91 213 234 542",
+  data,
   ...props
-}) {
+  
+}) 
+
+{
+  console.log('data',data)
   return (
     <div
       {...props}
       className={`${props.className} flex flex-col items-start gap-[0.63rem] p-[1.25rem] bg-gray-100_99 flex-1 rounded-[14px]`}
     >
       <Heading size="textxl" as="p" className="!text-gray-900">
-        {userName}
+        {data?.createdBy?.firstName || data?.firstName} {data?.createdBy?.lastName || data?.lastName} 
       </Heading>
       <div className="flex justify-between gap-[1.25rem] self-stretch">
         <div className="flex flex-col items-start gap-[0.13rem]">
@@ -25,8 +27,11 @@ export default function UserProfile3({
             {dateOfJoiningLabel}
           </Text>
           <Heading size="textlg" as="p">
-            {dateOfJoining}
-          </Heading>
+  {new Date(
+    data?.createdAt || data?.createdBy?.createdAt || new Date()
+  ).toLocaleDateString()}
+</Heading>
+
         </div>
         <div className="flex flex-1 justify-center">
           <div className="flex flex-col items-start gap-[0.25rem]">
@@ -34,7 +39,7 @@ export default function UserProfile3({
               {emailLabel}
             </Text>
             <Heading size="textlg" as="p">
-              {email}
+            {data?.createdBy?.email || data?.email}
             </Heading>
           </div>
           <div className="flex flex-col items-start gap-[0.13rem]">

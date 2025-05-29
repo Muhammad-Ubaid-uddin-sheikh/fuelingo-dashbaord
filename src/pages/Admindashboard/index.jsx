@@ -49,44 +49,61 @@ export default function AdmindashboardPage() {
   ];
   const getAdminData = async () => {
     try {
-      const [
-        signupsRes,
-        subscribersRes,
-        vehiclesRes,
-        dailyUsersRes,
-        fuleprice
-      ] = await Promise.all([
+      const results = await Promise.allSettled([
         fetchWithToken("/admin/getTotalSignUps"),
         fetchWithToken("/admin/getTotalSubscribers"),
         fetchWithToken("/admin/getRegisteredVehicles"),
         fetchWithToken("/admin/getNewUsers"),
-        fetchWithToken("/currentFuel/getFuelPrices") 
+        fetchWithToken("/currentFuel/getFuelPrices")
       ]);
   
-      // Defensive checks to avoid crashes
-      const signups = signupsRes?.getTotalSignUps || { totalCount: 0, users: [] };
-      const subscribers = subscribersRes?.getTotalSubscribers || { totalCount: 0, subscribers: [] };
-      const vehicles = vehiclesRes?.getRegisteredVehicles || { totalCount: 0, vehicles: [] };
-      const dailyUsers = dailyUsersRes?.getNewUsers || { totalCount: 0, users: [] };
+      // Extracting each result based on index
+      const [signupsRes, subscribersRes, vehiclesRes, dailyUsersRes, fuelPriceRes] = results;
   
-      // Update states
-      setTotalSingup(signups);
-      setSubscriber(subscribers);
-      setregisterVechile(vehicles);
-      setDailyUser(dailyUsers);
-      SetFuelPrice(fuleprice.getPrice)
-      // Set default visible list to total signups
-      setUserList(signups.users || []);
-    } catch (error) {
-      console.error("Fetch error:", error.response?.data || error);
-      if (error?.response?.data?.msg === "Invalid Token") {
-        localStorage.clear();
-        navigate('/admin-login');
-      
-        alert(error?.response?.data?.msg)
+      if (signupsRes.status === "fulfilled") {
+        const signups = signupsRes.value?.getTotalSignUps || { totalCount: 0, users: [] };
+        setTotalSingup(signups);
+        setUserList(signups.users || []);
       }
+  
+      if (subscribersRes.status === "fulfilled") {
+        const subscribers = subscribersRes.value?.getTotalSubscribers || { totalCount: 0, subscribers: [] };
+        setSubscriber(subscribers);
+      }
+  
+      if (vehiclesRes.status === "fulfilled") {
+        const vehicles = vehiclesRes.value?.getRegisteredVehicles || { totalCount: 0, vehicles: [] };
+        setregisterVechile(vehicles);
+      }
+  
+      if (dailyUsersRes.status === "fulfilled") {
+        const dailyUsers = dailyUsersRes.value?.getNewUsers || { totalCount: 0, users: [] };
+        setDailyUser(dailyUsers);
+      }
+  
+      if (fuelPriceRes.status === "fulfilled") {
+        SetFuelPrice(fuelPriceRes.value.getPrice);
+      }
+  
+      // Check for token expiration or individual errors
+      const allErrors = [signupsRes, subscribersRes, vehiclesRes, dailyUsersRes, fuelPriceRes]
+        .filter(r => r.status === "rejected")
+        .map(e => e.reason);
+  
+      for (const err of allErrors) {
+        if (err?.response?.data?.msg === "Invalid Token") {
+          localStorage.clear();
+          navigate('/admin-login');
+          alert("Invalid Token");
+          break;
+        }
+      }
+  
+    } catch (error) {
+      console.error("Unexpected error in getAdminData:", error);
     }
   };
+  
   
 
   useEffect(() => {
@@ -161,7 +178,7 @@ export default function AdmindashboardPage() {
               </div>
               <FeedbackSection  />
             </div>
-            <div className="w-[36%] md:w-full h-[100vh] overflow-scroll">
+            <div className="w-[36%] md:w-full ">
               <div className="flex flex-col gap-[1.25rem] rounded-[20px] border border-solid border-black-900_26 bg-white-a700_01 p-[1.50rem] sm:p-[1.00rem]">
              
                   {(() => {
@@ -180,17 +197,16 @@ export default function AdmindashboardPage() {
   );
 })()}
 
-                <div className="flex flex-col gap-[1.25rem] mt-4">
+                <div className="flex flex-col gap-[1.25rem] mt-4 h-[50em] overflow-scroll">
   <Suspense fallback={<div>Loading feed...</div>}>
     {userList.length > 0 ? (
       userList.map((user, index) => (
         <UserProfile3
+        data ={user}
           key={`user-${index}`}
-          userName={`${user.firstName} ${user.lastName}`}
           dateOfJoiningLabel="Date of Joining"
           dateOfJoining={new Date(user.createdAt).toLocaleDateString()}
           emailLabel="Email Address"
-          email={user.email}
           phoneNumberLabel="Phone Number"
           phoneNumber={user?.phNumber || "N/A"}
         />
