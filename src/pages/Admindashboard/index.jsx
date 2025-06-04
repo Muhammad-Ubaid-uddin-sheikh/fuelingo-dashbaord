@@ -11,6 +11,7 @@ import { fetchWithToken } from "api/ApiHandler";
 import socket from "api/socket";
 import HandleSocketUpdate from '../../helperFunc/HelperFuc'
 import { useNavigate } from "react-router-dom";
+import ImageDefulat from '../../Assests/Images/DefulatLogo.png'
 export default function AdmindashboardPage() {
  
   const [TotalSingup, setTotalSingup] = useState([]);
@@ -141,11 +142,12 @@ export default function AdmindashboardPage() {
             <Heading size="headingxl" as="h1" className="tracking-[0.00rem] md:text-[1.63rem] sm:text-[1.50rem]">
               Dashboard
             </Heading>
-            <Img
-              src="images/img_rectangle_1886.png"
+            {/* <Img
+              src="images/DefulatLogo.png"
               alt="Dashboard Image"
               className="h-[3.38rem] w-[3.38rem] rounded-md object-cover"
-            />
+            /> */}
+            <img  src={ImageDefulat} className="h-[3.38rem] w-[3.38rem] rounded-[17px] object-cover"/>
           </div>
           <div className="mr-[0.75rem] flex items-start  gap-[1.25rem] md:mr-0 md:flex-col">
             <div className="flex flex-1 flex-col gap-[1.25rem] self-center md:self-stretch">
