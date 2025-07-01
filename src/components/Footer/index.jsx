@@ -111,10 +111,10 @@ const navigate  = useNavigate()
               </a> */}
             </li>
             <li>
-            <p className="paragraphp lipara">
+            {/* <p className="paragraphp lipara">
             <NavLink to='/PrivacyPolicy' className="text-[white] font-medium font-[NeueMontreal]">  Cookies Settings </NavLink> 
            
-              </p>
+              </p> */}
               {/* <a href="#" className="self-end">
                 <Text size="20px" as="p">Cookies Settings</Text>
               </a> */}
