@@ -11,6 +11,12 @@ import PrivPolicy from "pages/Privacy";
 import SignUp from "pages/Signup/SignUp";
 import ProtectedRoute from "components/protectedRoute/ProtectedRoute";
 import Adminallfeedbacks from "pages/AdminAllFeedbacks";
+import UserManagement from "pages/userManagement/UserManagement";
+import ServiceProvider from "pages/userManagement/ServiceProvider";
+import Community from "pages/Community/Community";
+import PendingApplications from "pages/application/Pending";
+import ApprovedApplications from "pages/application/Approved";
+import RejectedApplications from "pages/application/Rejected";
 
 const ProjectRoutes = () => {
   let element = useRoutes([
@@ -23,6 +29,54 @@ const ProjectRoutes = () => {
       element: (
         <ProtectedRoute>
           <Admindashboard />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "user-management/customer",
+      element: (
+        <ProtectedRoute>
+          <UserManagement />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "user-management/service-provider",
+      element: (
+        <ProtectedRoute>
+          <ServiceProvider />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "applications/pending",
+      element: (
+        <ProtectedRoute>
+          < PendingApplications />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "applications/approved",
+      element: (
+        <ProtectedRoute>
+          <ApprovedApplications />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "applications/rejected",
+      element: (
+        <ProtectedRoute>
+          <RejectedApplications />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "community",
+      element: (
+        <ProtectedRoute>
+          <Community />
         </ProtectedRoute>
       ),
     },
